@@ -8,6 +8,7 @@ class Time(BaseModel):
     second: str
     unit: str
 
+
 class TimeSlot(BaseModel):
     start_time: Time
     end_time: Time
@@ -20,7 +21,6 @@ class CustomerConfiguration(BaseModel):
 class Configuration(BaseModel):
     customer_id: str
     configurations: dict[str, CustomerConfiguration]
-
 
 
 class ConfigurationRepository(BaseRepository[Configuration]):

@@ -1,6 +1,5 @@
-
-
 from pydantic import BaseModel
+from repository.base import BaseRepository
 
 
 class GlobalConfig(BaseModel):
@@ -13,5 +12,3 @@ class GlobalConfig(BaseModel):
 class GlobalConfigRepository(BaseRepository[GlobalConfig]):
     def __init__(self):
         super().__init__()
-        
-    

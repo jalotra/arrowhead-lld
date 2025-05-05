@@ -1,16 +1,15 @@
-
-
 from typing import TypeVar, Generic, Dict
 
 # Define a generic type variable
-T = TypeVar('T')
+T = TypeVar("T")
+
 
 # this is a base repository
 # which does CRUD operations
 class BaseRepository(Generic[T]):
     def __init__(self):
         self.entities: Dict[str, T] = {}
-    
+
     def create(self, entity_id: str, entity: T) -> T:
         self.entities[entity_id] = entity
         return entity
