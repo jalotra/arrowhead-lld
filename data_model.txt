@@ -1,0 +1,95 @@
+
+
+global_config
+    - country 
+    - permissible_start_time
+    - permissible_end_time
+    - tz 
+
+Customers
+    Configuration <Configurations> 
+        - start_time
+        - end_time 
+
+
+
+// example 
+global_config { 
+    permissible_start_time : 9:00 AM,
+    permissible_end_time : 5:00 PM,
+    tz : "America/New_York"
+    country : India
+}
+
+// configuration
+customer {
+    id : A,
+    name : "Customer A",
+    configurations : {
+        "Monday" : {
+            available_time_slots : [
+                {
+                    start_time : 9:00 AM,
+                    end_time : 10:00 AM
+                }, 
+                {
+                    start_time : 11:00 AM,
+                    end_time : 12:00 PM
+                }
+            ]
+        }, 
+        "Tuesday" : {
+            available_time_slots : [
+                {
+                    start_time : 9:00 AM,
+                    end_time : 10:00 AM
+                }, 
+                {
+                    start_time : 11:00 AM,
+                    end_time : 12:00 PM
+                }
+            ]
+        }
+    }
+}
+
+
+
+// UTC time
+time {
+    date : "2025-05-04",
+    hour : "9", 
+    minute : "30",
+    second : "00",
+    unit : "AM" | "PM"
+}
+
+time {
+    date : "2025-05-04",
+    hour : "10", 
+    minute : "30",
+    second : "00",
+    unit : "AM" | "PM"
+}
+
+
+schedule(customer_id, start_time: time) {
+    // config exits for customer_id
+    // check if start_time is in permissible range
+    // for the date 
+        // figure out all possible time slots
+        // start_time subset of any of the time slots -> search 
+        // if yes, return true
+    // else 
+    // check next day 
+        while slot_not_found:
+            if :
+                // lets check in same day if something is available_time_slots
+                // next slot available using search 
+            else :
+                // check next day 
+
+        
+}
+
+
