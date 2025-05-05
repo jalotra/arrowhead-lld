@@ -10,11 +10,11 @@ from fastapi import Depends
 
 
 async def get_global_repository() -> GlobalConfigRepository:
-    return GlobalConfigRepository()
+    yield GlobalConfigRepository()
 
 
 async def get_configuration_repository() -> ConfigurationRepository:
-    return ConfigurationRepository()
+    yield ConfigurationRepository()
 
 
 app = FastAPI()
