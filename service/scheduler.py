@@ -2,7 +2,7 @@ from fastapi import HTTPException
 from utils.date import get_day
 from repository.impl.configuration import ConfigurationRepository
 from repository.impl.global_config import GlobalConfigRepository
-from data_model import Time
+from repository.impl.configuration import Time
 
 
 days_to_ordinals = {
@@ -21,7 +21,7 @@ def schedule(
     start_time: Time,
     configuration: ConfigurationRepository,
     global_config: GlobalConfigRepository,
-):
+) -> bool:
     if configuration.read(customer_id) is None:
         raise HTTPException(status_code=404, detail="Customer not found")
     elif global_config.read() is None:

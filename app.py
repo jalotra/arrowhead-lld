@@ -3,6 +3,7 @@ from repository.impl.configuration import ConfigurationRepository
 from repository.impl.global_config import GlobalConfigRepository
 from service.scheduler import schedule
 from fastapi import Depends
+from repository.impl.configuration import Time
 
 # this creates repo beans
 # 1 for global config
@@ -27,6 +28,7 @@ app = FastAPI()
         Depends(get_configuration_repository),
         Depends(get_global_repository),
     ],
+    response_model=None
 )
 def schedule(
     customer_id: str,
@@ -34,7 +36,7 @@ def schedule(
     configuration: ConfigurationRepository,
     global_config: GlobalConfigRepository,
 ):
-    return schedule(customer_id, start_time, configuration, global_config)
+    schedule(customer_id, start_time, configuration, global_config)
 
 
 # CRUD on customer configuration

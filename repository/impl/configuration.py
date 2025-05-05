@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from repository.base import BaseRepository
 
 
 class Time(BaseModel):

@@ -1,5 +1,6 @@
 import datetime
-from impl.configuration import Time
+from repository.impl.configuration import Time
+
 
 
 # finds the day given a date
